@@ -9,6 +9,7 @@ using System.IO;
 
 namespace naturalGlow.UTIL
 {
+    //
     public static class GeneradorFactura
     {
         #region Generar Factura
