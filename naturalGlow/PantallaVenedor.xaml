@@ -1,0 +1,1236 @@
+﻿<Window x:Class="naturalGlow.PantallaVenedor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:naturalGlow"
+        mc:Ignorable="d"
+        Title="PantallaVenedor"
+        Height="747"
+        Width="1092">
+
+    <Viewbox Stretch="Uniform"
+         StretchDirection="DownOnly">
+
+        <Grid Width="1092" Height="747">
+
+            <TabControl>
+
+                <!-- PRODUCTES -->
+            <TabItem Header="Productes">
+                <Grid Margin="15">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="200"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Llista de Productes:"
+                   FontSize="22"
+                   FontWeight="Bold"
+                   Margin="0,0,0,15"/>
+
+                    <DataGrid x:Name="dgProductes"
+                  Grid.Row="1"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  Margin="0,0,0,25"
+                  SelectionChanged="DgProductes_SelectionChanged">
+
+                        <DataGrid.Columns>
+
+                            <DataGridTextColumn Header="Img"
+                                    Width="70"
+                                    Binding="{Binding ImatgeURL}"/>
+
+                            <DataGridTextColumn Header="Nom"
+                                    Width="150"
+                                    Binding="{Binding Nom}"/>
+
+                            <DataGridTextColumn Header="Categoria"
+                                    Width="150"
+                                    Binding="{Binding Categoria}"/>
+
+                            <DataGridTextColumn Header="Venda"
+                                    Width="100"
+                                    Binding="{Binding PreuVenda}"/>
+
+                            <DataGridTextColumn Header="Stock"
+                                    Width="100"
+                                    Binding="{Binding Stock}"/>
+
+                            <DataGridTextColumn Header="Estat"
+                                    Width="100"
+                                    Binding="{Binding Estat}"/>
+
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+
+                    <TextBlock Grid.Row="2"
+                   Text="Afegir / Editar Productes:"
+                   FontSize="22"
+                   FontWeight="Bold"
+                   Margin="0,0,0,15"/>
+
+                    <Grid Grid.Row="3">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="170"/>
+                            <ColumnDefinition Width="285"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="60"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Nom:"
+                       Grid.Row="0"
+                       VerticalAlignment="Center"/>
+
+                        <TextBox x:Name="txtNom"
+                     Grid.Row="0"
+                     Grid.Column="1"
+                     Height="30"/>
+
+                        <TextBlock Text="Descripció:"
+                       Grid.Row="1"
+                       VerticalAlignment="Center"/>
+
+                        <TextBox x:Name="txtDescripcio"
+                     Grid.Row="1"
+                     Grid.Column="1"
+                     Height="30"/>
+
+                        <TextBlock Text="Categoria:"
+                       Grid.Row="2"
+                       VerticalAlignment="Center"/>
+
+                        <TextBox x:Name="txtCategoria"
+                     Grid.Row="2"
+                     Grid.Column="1"
+                     Height="30"/>
+
+                        <TextBlock Text="Preu Compra:"
+                       Grid.Row="3"
+                       VerticalAlignment="Center"/>
+
+                        <TextBox x:Name="txtPreuCompra"
+                     Grid.Row="3"
+                     Grid.Column="1"
+                     Height="30"/>
+
+                        <TextBlock Text="Preu Venda:"
+                       Grid.Row="4"
+                       VerticalAlignment="Center"/>
+
+                        <TextBox x:Name="txtPreuVenda"
+                     Grid.Row="4"
+                     Grid.Column="1"
+                     Height="30"/>
+
+                        <TextBlock Text="Stock Disponible:"
+                       Grid.Row="5"
+                       VerticalAlignment="Center"/>
+
+                        <TextBox x:Name="txtStock"
+                     Grid.Row="5"
+                     Grid.Column="1"
+                     Height="30"/>
+
+                        <TextBlock Text="Stock Mínim:"
+                       Grid.Row="6"
+                       VerticalAlignment="Center"/>
+
+                        <TextBox x:Name="txtStockMinim"
+                     Grid.Row="6"
+                     Grid.Column="1"
+                     Height="30"/>
+
+                        <Button x:Name="btnImatge"
+                    Content="Imatge"
+                    Grid.Row="5"
+                    Grid.Column="2"
+                    Width="120"
+                    Height="35"
+                    HorizontalAlignment="Center"/>
+
+                        <StackPanel Grid.Row="7"
+                        Grid.ColumnSpan="3"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Left"
+                        Margin="0,10,0,0">
+
+                            <Button Content="Crear"
+                        Width="120"
+                        Height="40"
+                        Margin="0,0,20,0"
+                        Click="BtnCrear_Click"/>
+
+                            <Button Content="Modificar"
+                        Width="120"
+                        Height="40"
+                        Margin="0,0,20,0"
+                        Click="BtnModificar_Click"/>
+
+                            <Button Content="Eliminar"
+                        Width="120"
+                        Height="40"
+                        Click="BtnEliminar_Click"/>
+
+                        </StackPanel>
+
+                    </Grid>
+
+                </Grid>
+            </TabItem>
+            
+            <!-- PROVEÏDOR -->
+            <TabItem Header="Proveïdor">
+
+                <Grid Margin="8">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="450"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <GroupBox Grid.Column="0"
+                  Header="Dades del Proveïdor"
+                  Margin="0,0,8,0">
+
+                        <Grid Margin="10">
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="105"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Row="0"
+                           Grid.Column="0"
+                           Text="Nom empresa:"
+                           VerticalAlignment="Center"
+                           Margin="0,5"/>
+
+                            <TextBox x:Name="txtNomEmpresa"
+                         Grid.Row="0"
+                         Grid.Column="1"
+                         Height="25"
+                         Margin="5,3"/>
+
+                            <TextBlock Grid.Row="1"
+                           Grid.Column="0"
+                           Text="Persona contacte:"
+                           VerticalAlignment="Center"
+                           Margin="0,5"/>
+
+                            <TextBox x:Name="txtPersonaContacte"
+                         Grid.Row="1"
+                         Grid.Column="1"
+                         Height="25"
+                         Margin="5,3"/>
+
+
+                            <TextBlock Grid.Row="2"
+                           Grid.Column="0"
+                           Text="Telèfon:"
+                           VerticalAlignment="Center"
+                           Margin="0,5"/>
+
+                            <TextBox x:Name="txtTelefonProveidor"
+                         Grid.Row="2"
+                         Grid.Column="1"
+                         Height="25"
+                         Margin="5,3"/>
+
+
+                            <TextBlock Grid.Row="3"
+                           Grid.Column="0"
+                           Text="Correu:"
+                           VerticalAlignment="Center"
+                           Margin="0,5"/>
+
+                            <TextBox x:Name="txtCorreuProveidor"
+                         Grid.Row="3"
+                         Grid.Column="1"
+                         Height="25"
+                         Margin="5,3"/>
+
+                            <TextBlock Grid.Row="4"
+                           Grid.Column="0"
+                           Text="NIF/CIF:"
+                           VerticalAlignment="Center"
+                           Margin="0,5"/>
+
+                            <TextBox x:Name="txtNifCif"
+                         Grid.Row="4"
+                         Grid.Column="1"
+                         Height="25"
+                         Margin="5,3"/>
+
+
+                            <TextBlock Grid.Row="5"
+                           Grid.Column="0"
+                           Text="Adreça:"
+                           VerticalAlignment="Center"
+                           Margin="0,5"/>
+
+                            <TextBox x:Name="txtAdrecaProveidor"
+                         Grid.Row="5"
+                         Grid.Column="1"
+                         Height="25"
+                         Margin="5,3"/>
+
+                            <TextBlock Grid.Row="6"
+                           Grid.Column="0"
+                           Text="Forma pagament:"
+                           VerticalAlignment="Center"
+                           Margin="0,5"/>
+
+                            <TextBox x:Name="txtFormaPagament"
+                         Grid.Row="6"
+                         Grid.Column="1"
+                         Height="25"
+                         Margin="5,3"/>
+
+
+                            <StackPanel Grid.Row="7"
+                            Grid.ColumnSpan="2"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Center"
+                            Margin="0,12,0,12">
+
+                                <Button x:Name="btnAfegirProveidor"
+                            Content="Afegir"
+                            Width="75"
+                            Height="32"
+                            Margin="0,0,5,0"
+                            Click="BtnAfegirProveidor_Click"/>
+
+                                <Button x:Name="btnModificarProveidor"
+                            Content="Modificar"
+                            Width="80"
+                            Height="32"
+                            Margin="0,0,5,0"
+                            Click="BtnModificarProveidor_Click"/>
+
+                                <Button x:Name="btnEliminarProveidor"
+                            Content="Eliminar"
+                            Width="75"
+                            Height="32"
+                            Click="BtnEliminarProveidor_Click"/>
+
+                            </StackPanel>
+
+                            <TextBlock Grid.Row="8"
+                           Grid.ColumnSpan="2"
+                           Text="Llista de Proveïdors"
+                           FontWeight="Bold"
+                           Margin="0,5,0,5"/>
+
+
+                            <DataGrid x:Name="dgProveidors"
+                          Grid.Row="9"
+                          Grid.ColumnSpan="2"
+                          AutoGenerateColumns="False"
+                          IsReadOnly="True"
+                          SelectionMode="Single"
+                          SelectionChanged="DgProveidors_SelectionChanged">
+
+                                <DataGrid.Columns>
+
+                                    <DataGridTextColumn Header="Nom Empresa"
+                                            Width="*"
+                                            Binding="{Binding NomEmpresa}"/>
+
+                                    <DataGridTextColumn Header="Contacte"
+                                            Width="*"
+                                            Binding="{Binding Contacte}"/>
+
+                                    <DataGridTextColumn Header="Telèfon"
+                                            Width="*"
+                                            Binding="{Binding Telefon}"/>
+
+                                </DataGrid.Columns>
+
+                            </DataGrid>
+
+                        </Grid>
+
+                    </GroupBox>
+
+                    <GroupBox Grid.Column="1"
+                  Header="Crear Comanda"
+                  Margin="0,0,8,0">
+
+                        <Grid Margin="10">
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+
+                            <Grid Grid.Row="0"
+                      Margin="0,0,0,12">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="75"/>
+                                    <ColumnDefinition Width="150"/>
+                                    <ColumnDefinition Width="45"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+
+                                <TextBlock Grid.Column="0"
+                               Text="Proveïdor:"
+                               FontWeight="Bold"
+                               VerticalAlignment="Center"/>
+
+                                <ComboBox x:Name="cmbProveidor"
+                              Grid.Column="1"
+                              Height="28"
+                              Margin="5,0"
+                              DisplayMemberPath="NomEmpresa"
+                              SelectedValuePath="Id"
+                              SelectionChanged="CmbProveidor_SelectionChanged"/>
+
+
+                                <TextBlock Grid.Column="2"
+                               Text="Data:"
+                               FontWeight="Bold"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"/>
+
+                                <DatePicker x:Name="dpDataComanda"
+                                Grid.Column="3"
+                                Height="28"
+                                Margin="5,0"/>
+
+                            </Grid>
+
+
+                            <TextBlock Grid.Row="1"
+                           Text="Afegir productes a la comanda:"
+                           FontWeight="Bold"
+                           Margin="0,0,0,8"/>
+
+
+                            <Grid Grid.Row="2"
+                      Margin="0,0,0,10">
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="35"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="80"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="90"/>
+                                </Grid.ColumnDefinitions>
+
+
+
+                                <TextBlock Grid.Row="0"
+                               Grid.Column="0"
+                               Text="Producte"
+                               FontWeight="Bold"
+                               Margin="0,0,5,5"/>
+
+                                <TextBlock Grid.Row="0"
+                               Grid.Column="1"
+                               Text="Quantitat"
+                               FontWeight="Bold"
+                               Margin="0,0,5,5"/>
+
+                                <TextBlock Grid.Row="0"
+                               Grid.Column="2"
+                               Text="Preu Compra"
+                               FontWeight="Bold"
+                               Margin="0,0,5,5"/>
+
+
+                                <TextBox x:Name="txtProducteComanda"
+                             Grid.Row="1"
+                             Grid.Column="0"
+                             Height="28"
+                             Margin="0,0,5,0"
+                             ToolTip="Introdueix el nom o l'ID del producte"/>
+
+
+                                <TextBox x:Name="txtQuantitatComanda"
+                             Grid.Row="1"
+                             Grid.Column="1"
+                             Height="28"
+                             Margin="0,0,5,0"/>
+
+
+                                <TextBox x:Name="txtPreuCompraComanda"
+                             Grid.Row="1"
+                             Grid.Column="2"
+                             Height="28"
+                             Margin="0,0,5,0"
+                             IsReadOnly="True"/>
+
+
+                                <Button x:Name="btnAfegirProducteComanda"
+                            Grid.Row="1"
+                            Grid.Column="3"
+                            Content="Afegir"
+                            Height="28"
+                            Click="BtnAfegirProducteComanda_Click"/>
+
+                            </Grid>
+
+
+                            <DataGrid x:Name="dgProductesComanda"
+                          Grid.Row="3"
+                          AutoGenerateColumns="False"
+                          IsReadOnly="True"
+                          Margin="0,0,0,10">
+
+                                <DataGrid.Columns>
+
+                                    <DataGridTextColumn Header="Producte"
+                                            Width="*"
+                                            Binding="{Binding NomProducte}"/>
+
+                                    <DataGridTextColumn Header="Quantitat"
+                                            Width="75"
+                                            Binding="{Binding Quantitat}"/>
+
+                                    <DataGridTextColumn Header="Preu Compra"
+                                            Width="90"
+                                            Binding="{Binding PreuCompra,
+                                                      StringFormat={}{0:0.00} €}"/>
+
+                                    <DataGridTextColumn Header="Total"
+                                            Width="80"
+                                            Binding="{Binding Subtotal,
+                                                      StringFormat={}{0:0.00} €}"/>
+
+                                </DataGrid.Columns>
+
+                            </DataGrid>
+
+
+                            <StackPanel Grid.Row="4"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Right"
+                            Margin="0,5">
+
+                                <TextBlock Text="Total:"
+                               FontWeight="Bold"
+                               VerticalAlignment="Center"
+                               Margin="0,0,8,0"/>
+
+                                <TextBox x:Name="txtTotalComanda"
+                             Width="85"
+                             Height="27"
+                             IsReadOnly="True"/>
+
+                            </StackPanel>
+
+                            <StackPanel Grid.Row="5"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Left"
+                            Margin="0,8,0,0">
+
+                                <Button x:Name="btnNetejarComanda"
+                            Content="Netejar"
+                            Width="85"
+                            Height="32"
+                            Margin="0,0,15,0"
+                            Click="BtnNetejarComanda_Click"/>
+
+                                <Button x:Name="btnGuardarComanda"
+                            Content="Guardar"
+                            Width="90"
+                            Height="32"
+                            Click="BtnGuardarComanda_Click"/>
+
+                            </StackPanel>
+
+                        </Grid>
+
+                    </GroupBox>
+
+                    <GroupBox Grid.Column="2"
+                  Header="Historial de Comandes"
+                  Margin="0">
+
+                        <Grid Margin="10">
+
+                            <DataGrid x:Name="dgHistorialComandes"
+                          AutoGenerateColumns="False"
+                          IsReadOnly="True"
+                          SelectionMode="Single">
+
+                                <DataGrid.Columns>
+
+                                    <DataGridTextColumn Header="Núm. Comanda"
+                                            Width="*"
+                                            Binding="{Binding Id}"/>
+
+                                    <DataGridTextColumn Header="Data"
+                                            Width="100"
+                                            Binding="{Binding Data,
+                                                      StringFormat={}{0:dd/MM/yyyy}}"/>
+
+                                    <DataGridTextColumn Header="Productes"
+                                            Width="75"
+                                            Binding="{Binding LlistaProductes.Count}"/>
+
+                                </DataGrid.Columns>
+
+                            </DataGrid>
+
+                        </Grid>
+
+                    </GroupBox>
+
+                </Grid>
+
+            </TabItem>
+
+            <!-- COMANDES -->
+            <TabItem Header="Comandes">
+                <Grid Margin="8">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="125"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0"
+                   Text="Llista de comandes:"
+                   FontSize="16"
+                   FontWeight="Bold"
+                   Margin="0,0,0,8"/>
+
+                    <DataGrid x:Name="dgComandesClients"
+                  Grid.Row="1"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  SelectionMode="Single"
+                  SelectionChanged="DgComandesClients_SelectionChanged"
+                  Margin="0,0,0,10">
+
+                        <DataGrid.Columns>
+
+                            <DataGridTextColumn Header="Núm. Comanda"
+                                    Width="*"
+                                    Binding="{Binding Id}"/>
+
+                            <DataGridTextColumn Header="Client"
+                                    Width="2*"
+                                    Binding="{Binding IdClient}"/>
+
+                            <DataGridTextColumn Header="Data"
+                                    Width="110"
+                                    Binding="{Binding Data, StringFormat={}{0:dd/MM/yyyy}}"/>
+
+                            <DataGridTextColumn Header="Total"
+                                    Width="100"
+                                    Binding="{Binding Total, StringFormat={}{0:0.00} €}"/>
+
+                            <DataGridTextColumn Header="Estat"
+                                    Width="110"
+                                    Binding="{Binding Estat}"/>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <GroupBox Grid.Row="2"
+                  Header="Detall de la comanda"
+                  Margin="0,0,0,8">
+
+                        <Grid Margin="8">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="55"/>
+                                <ColumnDefinition Width="145"/>
+                                <ColumnDefinition Width="45"/>
+                                <ColumnDefinition Width="140"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0"
+                           Text="Client:"
+                           FontWeight="Bold"
+                           VerticalAlignment="Center"/>
+
+                            <TextBox x:Name="txtClientComanda"
+                         Grid.Column="1"
+                         Height="27"
+                         IsReadOnly="True"
+                         Margin="3,0,10,0"/>
+
+                            <TextBlock Grid.Column="2"
+                           Text="Data:"
+                           FontWeight="Bold"
+                           VerticalAlignment="Center"/>
+
+                            <DatePicker x:Name="dpDataComandaClient"
+                            Grid.Column="3"
+                            Height="27"
+                            IsEnabled="False"
+                            Margin="3,0"/>
+
+                            <StackPanel Grid.Column="4"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Right">
+
+                                <TextBlock Text="Estat actual:"
+                               FontWeight="Bold"
+                               VerticalAlignment="Center"
+                               Margin="0,0,8,0"/>
+
+                                <ComboBox x:Name="cmbEstatComanda"
+                                      Width="140"
+                                      Height="27"
+                                      IsEnabled="False"
+                                      SelectionChanged="CmbEstatComanda_SelectionChanged">
+
+                                    <ComboBoxItem Content="En preparació"/>
+                                    <ComboBoxItem Content="Enviada"/>
+                                    <ComboBoxItem Content="Entregada"/>
+                                    <ComboBoxItem Content="Cancel·lada"/>
+
+                                </ComboBox>
+
+                            </StackPanel>
+
+                        </Grid>
+                    </GroupBox>
+
+                    <TextBlock Grid.Row="3"
+                   Text="Productes:"
+                   FontWeight="Bold"
+                   VerticalAlignment="Center"
+                   Margin="0,5,0,5"/>
+
+                    <DataGrid x:Name="dgProductesComandaClient"
+                  Grid.Row="4"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  Margin="0,0,0,5">
+
+                        <DataGrid.Columns>
+
+                            <DataGridTextColumn Header="Producte"
+                                    Width="*"
+                                    Binding="{Binding NomProducte}"/>
+
+                            <DataGridTextColumn Header="Quantitat"
+                                    Width="90"
+                                    Binding="{Binding Quantitat}"/>
+
+                            <DataGridTextColumn Header="Preu"
+                                    Width="90"
+                                    Binding="{Binding PreuVenda, StringFormat={}{0:0.00} €}"/>
+
+                            <DataGridTextColumn Header="Total"
+                                    Width="90"
+                                    Binding="{Binding Subtotal, StringFormat={}{0:0.00} €}"/>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <TextBlock Grid.Row="5"
+                   x:Name="txtTotalComandaClient"
+                   Text="Total: 0,00 €"
+                   FontWeight="Bold"
+                   FontSize="13"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"
+                   Margin="0,0,5,0"/>
+
+                    <StackPanel Grid.Row="6"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Margin="0,10,0,5">
+
+                        <Button x:Name="btnActualitzarComandes"
+                    Content="Actualitzar llista"
+                    Width="120"
+                    Height="32"
+                    Margin="0,0,10,0"
+                    Click="BtnActualitzarComandes_Click"/>
+
+                        <Button x:Name="btnGestionarDevolucio"
+                    Content="Gestionar devolució"
+                    Width="130"
+                    Height="32"
+                    Margin="0,0,10,0"
+                    Click="BtnGestionarDevolucio_Click"/>
+
+                        <Button x:Name="btnVeureFactura"
+                    Content="Veure factura (PDF)"
+                    Width="130"
+                    Height="32"
+                    Click="BtnVeureFactura_Click"/>
+
+                    </StackPanel>
+
+                </Grid>
+            </TabItem>
+
+            <!-- Vendes -->
+
+            <TabItem Header="Vendes">
+
+                <Grid Margin="0,10,0,0">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="125"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+
+                    <Grid Grid.Row="0"
+              HorizontalAlignment="Left">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="165"/>
+                            <ColumnDefinition Width="150"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
+
+
+                        <TextBlock Grid.Row="0"
+                       Grid.Column="0"
+                       Text="Ingressos totals:"
+                       FontWeight="Bold"
+                       VerticalAlignment="Center"
+                       Margin="0,0,8,0"/>
+
+                        <TextBox x:Name="txtIngressosTotals"
+                     Grid.Row="0"
+                     Grid.Column="1"
+                     Text="0 €"
+                     IsReadOnly="True"
+                     HorizontalContentAlignment="Right"
+                     VerticalContentAlignment="Center"
+                     Padding="5,0"
+                     Margin="0,0,0,4"/>
+
+
+                        <TextBlock Grid.Row="1"
+                       Grid.Column="0"
+                       Text="Clients que han comprat:"
+                       VerticalAlignment="Center"
+                       Margin="0,0,8,0"/>
+
+                        <TextBox x:Name="txtClientsCompradors"
+                     Grid.Row="1"
+                     Grid.Column="1"
+                     Text="0"
+                     IsReadOnly="True"
+                     HorizontalContentAlignment="Right"
+                     VerticalContentAlignment="Center"
+                     Padding="5,0"
+                     Margin="0,0,0,4"/>
+
+                        <TextBlock Grid.Row="2"
+                       Grid.Column="0"
+                       Text="Comandes totals:"
+                       VerticalAlignment="Center"
+                       Margin="0,0,8,0"/>
+
+                        <TextBox x:Name="txtComandesTotals"
+                     Grid.Row="2"
+                     Grid.Column="1"
+                     Text="0"
+                     IsReadOnly="True"
+                     HorizontalContentAlignment="Right"
+                     VerticalContentAlignment="Center"
+                     Padding="5,0"
+                     Margin="0,0,0,4"/>
+
+
+                        <TextBlock Grid.Row="3"
+                       Grid.Column="0"
+                       Text="Devolucions:"
+                       VerticalAlignment="Center"
+                       Margin="0,0,8,0"/>
+
+                        <TextBox x:Name="txtDevolucionsTotals"
+                     Grid.Row="3"
+                     Grid.Column="1"
+                     Text="0"
+                     IsReadOnly="True"
+                     HorizontalContentAlignment="Right"
+                     VerticalContentAlignment="Center"
+                     Padding="5,0"/>
+                    </Grid>
+
+                    <TextBlock Grid.Row="1"
+                   Text="Historial de devolucions (comandes)"
+                   FontSize="14"
+                   FontWeight="Bold"
+                   Margin="0,5,0,12"/>
+
+
+                    <DataGrid x:Name="dgHistorialDevolucions"
+                  Grid.Row="2"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  IsReadOnly="True"
+                  HeadersVisibility="Column"
+                  GridLinesVisibility="Horizontal"
+                  HorizontalGridLinesBrush="#E5E5E5"
+                  BorderBrush="#D0D0D0"
+                  BorderThickness="1"
+                  Margin="0,0,0,0">
+
+                        <DataGrid.ColumnHeaderStyle>
+
+                            <Style TargetType="DataGridColumnHeader">
+
+                                <Setter Property="FontSize"
+                            Value="10"/>
+
+                                <Setter Property="FontWeight"
+                            Value="Normal"/>
+
+                                <Setter Property="Padding"
+                            Value="4,2"/>
+
+                                <Setter Property="Background"
+                            Value="#F5F5F5"/>
+
+                                <Setter Property="BorderBrush"
+                            Value="#E0E0E0"/>
+
+                                <Setter Property="BorderThickness"
+                            Value="0,0,1,1"/>
+
+                            </Style>
+
+                        </DataGrid.ColumnHeaderStyle>
+
+
+                        <DataGrid.Columns>
+
+                            <DataGridTextColumn Header="Id. Dev"
+                                    Binding="{Binding IdDevolucio}"
+                                    Width="90"/>
+
+
+                            <DataGridTextColumn Header="Comanda"
+                                    Binding="{Binding Comanda}"
+                                    Width="110"/>
+
+
+                            <DataGridTextColumn Header="Client"
+                                    Binding="{Binding Client}"
+                                    Width="*"/>
+
+
+                            <DataGridTextColumn Header="Data"
+                                    Binding="{Binding Data}"
+                                    Width="70"/>
+
+                            <DataGridTextColumn Header="Producte"
+                                    Binding="{Binding Producte}"
+                                    Width="100"/>
+
+
+                            <DataGridTextColumn Header="Quantitat"
+                                    Binding="{Binding Quantitat}"
+                                    Width="70"/>
+
+                            <DataGridTextColumn Header="Estat"
+                                    Binding="{Binding Estat}"
+                                    Width="*"/>
+
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+
+                </Grid>
+
+            </TabItem>
+
+
+            <!-- MISSATGES -->
+            <TabItem Header="Missatges">
+                <Grid Margin="5">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="45"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+
+                        <TextBlock Text="Missatges"
+                       FontSize="22"
+                       FontWeight="Bold"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"/>
+                        
+                        <Button x:Name="btnTancarSessio"
+                    Content="Tancar sessió"
+                    Width="120"
+                    Height="32"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Click="BtnTancarSessio_Click"/>
+                    </Grid>
+
+
+                    <Grid Grid.Row="1">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="220"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+
+                        <GroupBox Grid.Column="0"
+                      Header="Missatges Clients"
+                      Margin="0,0,8,0">
+
+                            <Grid Margin="8">
+
+                                <ListBox x:Name="lstClients"
+                             SelectionChanged="LstClients_SelectionChanged"
+                             DisplayMemberPath="Nom"/>
+
+                            </Grid>
+
+                        </GroupBox>
+
+
+                        <GroupBox Grid.Column="1"
+                      Header=""
+                      Margin="0">
+
+                            <Grid Margin="10">
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+
+
+                                <TextBlock x:Name="txtClientSeleccionat"
+                               Grid.Row="0"
+                               Text=""
+                               FontSize="22"
+                               FontWeight="Bold"
+                               Margin="0,0,0,10"/>
+
+
+
+                                <ScrollViewer Grid.Row="1"
+                                  VerticalScrollBarVisibility="Auto"
+                                  HorizontalScrollBarVisibility="Disabled">
+
+                                    <StackPanel x:Name="panelMissatges"
+                                    Margin="0,5,0,10"/>
+
+                                </ScrollViewer>
+
+
+
+                                <Grid Grid.Row="2"
+                          Margin="0,10,0,0">
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="110"/>
+                                    </Grid.ColumnDefinitions>
+
+
+                                    <TextBox x:Name="txtMissatge"
+                                 Grid.Column="0"
+                                 Height="36"
+                                 Margin="0,0,10,0"
+                                 VerticalContentAlignment="Center"/>
+
+
+                                    <Button x:Name="btnEnviar"
+                                Grid.Column="1"
+                                Content="Enviar"
+                                Height="36"
+                                Click="BtnEnviar_Click"/>
+
+                                </Grid>
+
+                            </Grid>
+
+                        </GroupBox>
+
+                    </Grid>
+
+                </Grid>
+            </TabItem>
+
+            <!-- GRÀFICS -->
+            <TabItem Header="Gràfics">
+
+                <Grid Margin="5">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Grid.Row="0"
+                Grid.Column="0"
+                BorderBrush="#A0A0A0"
+                BorderThickness="1"
+                CornerRadius="6"
+                Margin="0,0,4,4">
+
+                        <Grid>
+
+                            <TextBlock Text="Productes més venuts"
+                           FontSize="13"
+                           FontWeight="Bold"
+                           Margin="8,5,0,0"
+                           VerticalAlignment="Top"/>
+
+                            <Canvas x:Name="canvasProductesMesVenuts"
+                        Margin="10,25,10,10"/>
+
+                        </Grid>
+
+                    </Border>
+
+
+                    <Border Grid.Row="0"
+                Grid.Column="1"
+                BorderBrush="#A0A0A0"
+                BorderThickness="1"
+                CornerRadius="6"
+                Margin="4,0,0,4">
+
+                        <Grid>
+
+                            <TextBlock Text="Ingressos mensuals"
+                           FontSize="13"
+                           FontWeight="Bold"
+                           Margin="8,5,0,0"
+                           VerticalAlignment="Top"/>
+
+                            <Canvas x:Name="canvasIngressosMensuals"
+                        Margin="10,25,10,10"/>
+
+                        </Grid>
+
+                    </Border>
+
+
+                    <Border Grid.Row="1"
+                Grid.Column="0"
+                BorderBrush="#A0A0A0"
+                BorderThickness="1"
+                CornerRadius="6"
+                Margin="0,4,4,0">
+
+                        <Grid>
+
+                            <TextBlock Text="Evolució de vendes"
+                           FontSize="13"
+                           FontWeight="Bold"
+                           Margin="8,5,0,0"
+                           VerticalAlignment="Top"/>
+
+                            <Canvas x:Name="canvasEvolucioVendes"
+                        Margin="10,25,10,10"/>
+
+                        </Grid>
+
+                    </Border>
+
+                    <Border Grid.Row="1"
+                Grid.Column="1"
+                BorderBrush="#A0A0A0"
+                BorderThickness="1"
+                CornerRadius="6"
+                Margin="4,4,0,0">
+
+                        <Grid>
+
+                            <TextBlock Text="Stock crític"
+                           FontSize="13"
+                           FontWeight="Bold"
+                           Margin="8,5,0,0"
+                           VerticalAlignment="Top"/>
+
+                            <ScrollViewer Margin="8,28,8,8"
+                              VerticalScrollBarVisibility="Auto">
+
+                                <StackPanel x:Name="panelStockCritic"/>
+
+                            </ScrollViewer>
+
+                        </Grid>
+
+                    </Border>
+
+                </Grid>
+
+            </TabItem>
+
+        </TabControl>
+
+    </Grid>
+        
+    </Viewbox>
+
+</Window>

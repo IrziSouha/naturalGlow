@@ -1,0 +1,207 @@
+﻿<Window x:Class="naturalGlow.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:naturalGlow"
+        mc:Ignorable="d"
+        Title="Natural Glow"
+        Height="450"
+        Width="800"
+        MinHeight="200"
+        MinWidth="350"
+        WindowStartupLocation="CenterScreen">
+
+    <Viewbox Stretch="Uniform"
+             StretchDirection="DownOnly">
+
+        <Grid Width="800" Height="450" Margin="20">
+
+            <Border BorderBrush="Gray"
+                    BorderThickness="1">
+
+                <TabControl>
+
+                    <!-- VENEDOR -->
+                    <TabItem Header="Venedor">
+                        <Grid>
+
+                            <StackPanel Width="320"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center">
+
+                                <Grid Margin="0,0,0,15">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="70"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Text="Correu:"
+                                               VerticalAlignment="Center"
+                                               Margin="0,0,10,0"/>
+
+                                    <TextBox x:Name="txtEmailLoginVenedor"
+                                             Grid.Column="1"
+                                             Height="25"/>
+                                </Grid>
+
+                                <Grid Margin="0,0,0,25">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="70"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Text="Contra:"
+                                               VerticalAlignment="Center"
+                                               Margin="0,0,10,0"/>
+
+                                    <PasswordBox x:Name="txtPasswordLoginVenedor"
+                                                 Grid.Column="1"
+                                                 Height="25"/>
+                                </Grid>
+
+                                <Button Content="Iniciar sessió"
+                                        Height="32"
+                                        Margin="0,0,0,10"
+                                        Click="BtnLoginVenedor_Click"/>
+
+                                <Button Content="Recuperar la contrasenya"
+                                        Height="32"
+                                        Click="BtnRecuperarPasswordVenedor_Click"/>
+
+                            </StackPanel>
+                        </Grid>
+                    </TabItem>
+
+                    <!-- CLIENTS -->
+                    <TabItem Header="Clients">
+                        <Grid>
+
+                            <StackPanel Width="320"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center">
+
+                                <Grid Margin="0,0,0,15">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="70"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Text="Correu:"
+                                               VerticalAlignment="Center"/>
+
+                                    <TextBox x:Name="txtEmailLoginClient"
+                                             Grid.Column="1"
+                                             Height="25"/>
+                                </Grid>
+
+                                <Grid Margin="0,0,0,25">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="70"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Text="Contra:"
+                                               VerticalAlignment="Center"/>
+
+                                    <PasswordBox x:Name="txtPasswordLoginClient"
+                                                 Grid.Column="1"
+                                                 Height="25"/>
+                                </Grid>
+
+                                <Button Content="Iniciar sessió"
+                                        Height="32"
+                                        Margin="0,0,0,10"
+                                        Click="BtnLoginClient_Click"/>
+
+                                <Button Content="Recuperar la contrasenya"
+                                        Height="32"
+                                        Click="BtnRecuperarPasswordClient_Click"/>
+
+                            </StackPanel>
+                        </Grid>
+                    </TabItem>
+
+                    <!-- REGISTRA VENEDOR -->
+                    <TabItem Header="Registra Venedor">
+                        <Grid>
+
+                            <StackPanel Width="250"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center">
+
+                                <TextBlock Text="Correu:"
+                                           Margin="0,0,0,5"/>
+
+                                <TextBox x:Name="txtEmailVenedor"
+                                         Height="25"
+                                         Margin="0,0,0,15"/>
+
+                                <TextBlock Text="Contra:"
+                                           Margin="0,0,0,5"/>
+
+                                <PasswordBox x:Name="txtPasswordVenedor"
+                                             Height="25"
+                                             Margin="0,0,0,15"/>
+
+                                <TextBlock Text="Confirmar contra:"
+                                           Margin="0,0,0,5"/>
+
+                                <PasswordBox x:Name="txtConfirmPasswordVenedor"
+                                             Height="25"
+                                             Margin="0,0,0,15"/>
+
+                                <Button Content="Registrar-se"
+                                        Width="100"
+                                        Height="25"
+                                        HorizontalAlignment="Left"
+                                        Click="BtnRegistrarVenedor_Click"/>
+
+                            </StackPanel>
+                        </Grid>
+                    </TabItem>
+
+                    <!-- REGISTRA CLIENT -->
+                    <TabItem Header="Registra Clients">
+                        <Grid>
+
+                            <StackPanel Width="170"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center">
+
+                                <TextBlock Text="Correu:"
+                                           Margin="0,0,0,5"/>
+
+                                <TextBox x:Name="txtEmailClient"
+                                         Height="25"
+                                         Margin="0,0,0,15"/>
+
+                                <TextBlock Text="Contra:"
+                                           Margin="0,0,0,5"/>
+
+                                <PasswordBox x:Name="txtPasswordClient"
+                                             Height="25"
+                                             Margin="0,0,0,15"/>
+
+                                <TextBlock Text="Confirmar contra:"
+                                           Margin="0,0,0,5"/>
+
+                                <PasswordBox x:Name="txtConfirmPasswordClient"
+                                             Height="25"
+                                             Margin="0,0,0,15"/>
+
+                                <Button Content="Registrar-se"
+                                        Width="100"
+                                        Height="25"
+                                        HorizontalAlignment="Left"
+                                        Click="BtnRegistrarClient_Click"/>
+
+                            </StackPanel>
+                        </Grid>
+                    </TabItem>
+
+                </TabControl>
+            </Border>
+        </Grid>
+    </Viewbox>
+</Window>
